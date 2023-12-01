@@ -1,0 +1,65 @@
+﻿Education (Less than High School) by State,,,,
+Population Ages 25+,,,,
+"All Races (includes Hispanic/Latino), Both Sexes, 2017-2021",,
+Sorted by Value,,,,
+,,,,
+State, FIPS,Value (Percent),People(Education: Less Than High School),Rank within US (of 51 states)
+"United States",00000,11.1,25050356,"N/A"
+"California",06000,15.8,4236035,"51"
+"Texas",48000,15.2,2826181,"50"
+"Mississippi",28000,14.4,283522,"49"
+"Louisiana",22000,13.8,431595,"48"
+"New Mexico",35000,13.2,188715,"47"
+"Nevada",32000,13.0,274760,"46"
+"Alabama",01000,12.6,430047,"45"
+"New York",36000,12.6,1769657,"44"
+"Kentucky",21000,12.3,376963,"43"
+"Arkansas",05000,12.3,248721,"42"
+"West Virginia",54000,11.9,152581,"41"
+"Georgia",13000,11.8,831989,"40"
+"Arizona",04000,11.7,560460,"39"
+"Oklahoma",40000,11.3,293373,"38"
+"Tennessee",47000,11.2,529162,"37"
+"South Carolina",45000,11.2,393448,"36"
+"North Carolina",37000,11.0,776686,"35"
+"Florida",12000,11.0,1682505,"34"
+"Rhode Island",44000,10.9,83508,"33"
+"Indiana",18000,10.2,460480,"32"
+"Illinois",17000,10.1,885321,"31"
+"New Jersey",34000,9.5,608877,"30"
+"Maryland",24000,9.2,391353,"29"
+"Virginia",51000,9.2,539599,"28"
+"Missouri",29000,9.0,377539,"27"
+"Delaware",10000,8.9,61788,"26"
+"Connecticut",09000,8.9,225021,"25"
+"Ohio",39000,8.9,715751,"24"
+"Massachusetts",25000,8.8,433215,"23"
+"Idaho",16000,8.8,104683,"22"
+"Pennsylvania",42000,8.6,787376,"21"
+"Oregon",41000,8.5,252602,"20"
+"Michigan",26000,8.4,582901,"19"
+"Kansas",20000,8.4,161293,"18"
+"Nebraska",31000,8.3,105606,"17"
+"Washington",53000,8.1,426501,"16"
+"District of Columbia",11001,7.8,37934,"15"
+"Colorado",08000,7.6,300620,"14"
+"South Dakota",46000,7.5,43328,"13"
+"Hawaii",15000,7.3,74468,"12"
+"Iowa",19000,7.2,152380,"11"
+"Wisconsin",55000,7.1,285275,"10"
+"Utah",49000,6.9,132503,"9"
+"Alaska",02900,6.7,32669,"8"
+"North Dakota",38000,6.7,33831,"7"
+"Minnesota",27000,6.4,247610,"6"
+"New Hampshire",33000,6.4,62809,"5"
+"Maine",23000,6.3,62607,"4"
+"Wyoming",56000,6.3,24433,"3"
+"Vermont",50000,6.1,27915,"2"
+"Montana",30000,5.6,42160,"1"
+,,,,
+Suggested Citation:,,,,
+HDPulse: An Ecosystem of Minority Health and Health Disparities Resources. National Institute on Minority Health and Health Disparities. Created 12/1/2023. Available from https://hdpulse.nimhd.nih.gov,,,,
+,,,,
+Notes:,,,,
+Source: Demographic data provided by the Census Bureau (http://www.census.gov/) & the American Community Survey (http://www.census.gov/acs/www/).,,,,
+"For more information about Education (Less than High School), see the dictionary at http://hdpulse.nimhd.nih.gov/data/dictionary.php#education.",,,

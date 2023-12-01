@@ -1,0 +1,65 @@
+﻿Education (At least bachelors degree) by State,,,,
+Population Ages 25+,,,,
+"All Races (includes Hispanic/Latino), Both Sexes, 2017-2021",,
+Sorted by Value,,,,
+,,,,
+State, FIPS,Value (Percent),People (Education: At Least Bachelors Degree),Rank within US (of 51 states)
+"United States",00000,33.7,75808834,"N/A"
+"West Virginia",54000,21.8,278281,"51"
+"Mississippi",28000,23.2,458928,"50"
+"Arkansas",05000,24.3,491269,"49"
+"Louisiana",22000,25.5,800083,"48"
+"Kentucky",21000,25.7,785070,"47"
+"Nevada",32000,26.1,551603,"46"
+"Alabama",01000,26.7,910425,"45"
+"Oklahoma",40000,26.8,700142,"44"
+"Indiana",18000,27.8,1253299,"43"
+"Wyoming",56000,28.5,111283,"42"
+"New Mexico",35000,28.5,407041,"41"
+"Tennessee",47000,29.0,1367211,"40"
+"Idaho",16000,29.1,345282,"39"
+"Ohio",39000,29.7,2398329,"38"
+"Iowa",19000,29.7,629720,"37"
+"South Carolina",45000,29.8,1046424,"36"
+"South Dakota",46000,30.0,174037,"35"
+"Alaska",02900,30.6,148191,"34"
+"Michigan",26000,30.6,2119662,"33"
+"Missouri",29000,30.7,1285199,"32"
+"North Dakota",38000,31.1,156652,"31"
+"Arizona",04000,31.2,1495416,"30"
+"Wisconsin",55000,31.5,1268299,"29"
+"Florida",12000,31.5,4839956,"28"
+"Texas",48000,31.5,5871195,"27"
+"Nebraska",31000,32.9,420175,"26"
+"Georgia",13000,33.0,2335225,"25"
+"North Carolina",37000,33.0,2339163,"24"
+"Pennsylvania",42000,33.1,3017250,"23"
+"Maine",23000,33.6,334450,"22"
+"Delaware",10000,33.6,232374,"21"
+"Montana",30000,33.7,251226,"20"
+"Hawaii",15000,34.3,350418,"19"
+"Kansas",20000,34.4,661235,"18"
+"Oregon",41000,35.0,1041094,"17"
+"California",06000,35.3,9451438,"16"
+"Rhode Island",44000,35.3,270769,"15"
+"Utah",49000,35.4,680859,"14"
+"Illinois",17000,36.2,3169569,"13"
+"Washington",53000,37.3,1968008,"12"
+"Minnesota",27000,37.6,1445462,"11"
+"New York",36000,38.1,5366712,"10"
+"New Hampshire",33000,38.2,377035,"9"
+"Virginia",51000,40.3,2372397,"8"
+"Connecticut",09000,40.6,1019966,"7"
+"Vermont",50000,40.9,185690,"6"
+"New Jersey",34000,41.5,2660853,"5"
+"Maryland",24000,41.6,1762482,"4"
+"Colorado",08000,42.8,1686169,"3"
+"Massachusetts",25000,45.2,2216349,"2"
+"District of Columbia",11001,61.4,299469,"1"
+,,,,
+Suggested Citation:,,,,
+HDPulse: An Ecosystem of Minority Health and Health Disparities Resources. National Institute on Minority Health and Health Disparities. Created 12/1/2023. Available from https://hdpulse.nimhd.nih.gov,,,,
+,,,,
+Notes:,,,,
+Source: Demographic data provided by the Census Bureau (http://www.census.gov/) & the American Community Survey (http://www.census.gov/acs/www/).,,,,
+"For more information about Education (At least bachelors degree), see the dictionary at http://hdpulse.nimhd.nih.gov/data/dictionary.php#education.",,,

@@ -1,0 +1,65 @@
+﻿Income (Median household income) by State,,,
+"All Races (includes Hispanic/Latino), Both Sexes, All Ages 2017-2021",
+Sorted by Value,,,
+,,,
+State, FIPS,Value (Dollars)Rank within US (of 51 states),
+"United States",00000,69021,"N/A"
+"Mississippi",28000,49111,"51"
+"West Virginia",54000,50884,"50"
+"Arkansas",05000,52123,"49"
+"Louisiana",22000,53571,"48"
+"New Mexico",35000,54020,"47"
+"Alabama",01000,54943,"46"
+"Kentucky",21000,55454,"45"
+"Oklahoma",40000,56956,"44"
+"South Carolina",45000,58234,"43"
+"Tennessee",47000,58516,"42"
+"North Carolina",37000,60516,"41"
+"Montana",30000,60560,"40"
+"Missouri",29000,61043,"39"
+"Florida",12000,61777,"38"
+"Ohio",39000,61938,"37"
+"Indiana",18000,61944,"36"
+"Maine",23000,63182,"35"
+"Michigan",26000,63202,"34"
+"Idaho",16000,63377,"33"
+"South Dakota",46000,63920,"32"
+"Kansas",20000,64521,"31"
+"Georgia",13000,65030,"30"
+"Iowa",19000,65429,"29"
+"Nevada",32000,65686,"28"
+"Arizona",04000,65913,"27"
+"Nebraska",31000,66644,"26"
+"Wisconsin",55000,67080,"25"
+"Texas",48000,67321,"24"
+"Pennsylvania",42000,67587,"23"
+"Vermont",50000,67674,"22"
+"Wyoming",56000,68002,"21"
+"North Dakota",38000,68131,"20"
+"Oregon",41000,70084,"19"
+"Illinois",17000,72563,"18"
+"Delaware",10000,72724,"17"
+"Rhode Island",44000,74489,"16"
+"New York",36000,75157,"15"
+"Minnesota",27000,77706,"14"
+"Utah",49000,79133,"13"
+"Colorado",08000,80184,"12"
+"Alaska",02900,80287,"11"
+"Virginia",51000,80615,"10"
+"Washington",53000,82400,"9"
+"New Hampshire",33000,83449,"8"
+"Connecticut",09000,83572,"7"
+"California",06000,84097,"6"
+"Hawaii",15000,88005,"5"
+"Massachusetts",25000,89026,"4"
+"New Jersey",34000,89703,"3"
+"Maryland",24000,91431,"2"
+"District of Columbia",11001,93547,"1"
+,,,
+Suggested Citation:,,,
+HDPulse: An Ecosystem of Minority Health and Health Disparities Resources. National Institute on Minority Health and Health Disparities. Created 12/1/2023. Available from https://hdpulse.nimhd.nih.gov,,,
+,,,
+Notes:,,,
+Source: Demographic data provided by the Census Bureau (http://www.census.gov/) & the American Community Survey (http://www.census.gov/acs/www/).,,,
+"For more information about Income (Median household income), see the dictionary at http://hdpulse.nimhd.nih.gov/data/dictionary.php#income.",,
+"Median Incomes over 250,000 have been coded to 250,001 by the Census Bureau. [ http://www2.census.gov/acs2012_5yr/summaryfile/ACS_2008-2012_SF_Tech_Doc.pdf ]",
