@@ -3,6 +3,10 @@ title: "Final Project Proposal"
 output: html_document
 date: "2023-11-15"
 ---
+1. Is there a correlation between obesity rates and education level?  
+2. How does the correlation between education and obesity vary across different races?
+3. Which education level has a higher correlation to obesity rates?
+4. How does the correlation between education and obesity vary across different states?
 
 ```{r}
 library(magrittr)
