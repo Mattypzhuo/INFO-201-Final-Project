@@ -3,10 +3,6 @@ title: "Final Project Proposal"
 output: html_document
 date: "2023-11-15"
 ---
-1. Is there a correlation between obesity rates and education level?  
-2. How does the correlation between education and obesity vary across different races?
-3. Which education level has a higher correlation to obesity rates?
-4. How does the correlation between education and obesity vary across different states?
 
 ```{r}
 library(magrittr)
@@ -112,10 +108,8 @@ white_education %>%
 ```
 
 ```{r}
-white_smoking <- read.csv("white_smoking_fixed.csv")
-white_smoking <- white_smoking %>%
-  rename(State=United.States)
-white_smoking
+black_education <- read.csv("black_education_fixed.csv")
+black_education
 ```
 
 ```{r}
@@ -125,11 +119,17 @@ data <- overallObesity %>%
   full_join(black_2022) %>%
   full_join(hispanic_2022) %>%
   full_join(white_2022) %>%
-  full_join(white_income) %>%
-  full_join(black_income) %>%
-  full_join(Hispanic_income) %>%
-  full_join(American_Indian_income) %>%
   full_join(white_education)
 data
+```
+
+```{r}
+library(ggplot2)
+data %>%
+  ggplot(aes(white_Prevalence,white_Value_Percent)) + geom_point(aes(color=State))
+```
+
+```{r}
+
 ```
 
