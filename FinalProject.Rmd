@@ -8,125 +8,60 @@ date: "2023-11-15"
 library(magrittr)
 library(dplyr)
 library(stringr)
-overallObesity <- read.delim("obesity.csv")
-overallObesity
+overallObesity <- read.csv("data/obesity.csv")
 overallObesity <- overallObesity %>%
-  rename(data=
-State.Prevalence.95CI)
-
-overallObesity$State <- str_split_i(overallObesity$data,",",1)
-overallObesity$Prevalence <- str_split_i(overallObesity$data,",",2)
-overallObesity$CI <- str_split_i(overallObesity$data,",",3)
-
-overallObesity <- overallObesity %>%
-  select(-data) %>%
-  rename(Overall_Prevelence = Prevalence, Overall_CI = CI)
+  select(-X95CI,-State)
 overallObesity
 ```
 
 ```{r}
-american_indian_2022 <- read.csv("2022-american-indian.csv")
-american_indian_2022 <- american_indian_2022 %>%
-  rename(American_Indian_Prevelence = Prevalence, American_Indian_CI = X95..CI)
-american_indian_2022
-
-```
-
-```{r}
-asian_2022 <- read.csv("2022-asian.csv")
-asian_2022 <- asian_2022 %>%
-  rename(Asian_Prevalence = Prevalence, Asian_CI = X95..CI)
-asian_2022
-```
-
-```{r}
-black_2022 <- read.csv("2022-black.csv")
-black_2022 <- black_2022 %>%
-  rename(Black_Prevalence = Prevalence, Black_CI = X95..CI)
-black_2022
-```
-
-```{r}
-hispanic_2022 <- read.csv("2022-hispanic.csv")
-hispanic_2022 <- hispanic_2022 %>%
-  rename(hispanic_Prevalence = Prevalence, hispanic_CI = X95..CI)
-hispanic_2022
-```
-
-
-```{r}
-white_2022 <- read.csv("2022-white.csv")
-white_2022 <- white_2022 %>%
-  rename(white_Prevalence = Prevalence, white_CI = X95..CI)
-white_2022
-```
-
-
-```{r}
-white_income <- read.csv("white_income_fixed.csv")
-white_income <- white_income %>%
-  rename(State = Income..Median.household.income..by.State,white_FIPS=X,white_Value=X.1,white_Rank=X.2)
-white_income <- white_income[-c(1:4,57:64),]
-white_income %>%
+education_BD <- read.csv("education_fixed_BD.csv")
+education_BD <- education_BD[-c(1:5,57:64),]
+education_BD<- education_BD[-1,]
+education_BD <- education_BD %>%
+  select(-X)
+education_BD <- dplyr::rename(education_BD,State=Education..At.least.bachelors.degree..by.State,Value_Percent_BD=X.1,people_BD=X.2,rank_BD=X.3)
+education_BD <- education_BD %>%
   arrange(State)
+education_BD
 ```
 
 ```{r}
-black_income <- read.csv("black_income_fixed.csv")
-black_income <- black_income %>%
-  rename(State = Income..Median.household.income..by.State,black_FIPS=X,black_Value=X.1,black_Rank=X.2)
-black_income <- black_income[-c(1:4,57:64),]
-black_income
-```
-
-```{r}
-American_Indian_income <- read.csv("American_Indian_income_fixed.csv")
-American_Indian_income <- American_Indian_income %>%
-  rename(State = Income..Median.household.income..by.State,American_Indian_FIPS=X,American_Indian_Value=X.1,American_Indian_Rank=X.2)
-American_Indian_income <- American_Indian_income[-c(1:4,57:64),]
-American_Indian_income
-```
-
-```{r}
-Hispanic_income <- read.csv("Hispanic_income_fixed.csv")
-Hispanic_income <- Hispanic_income %>%
-  rename(State = Income..Median.household.income..by.State,Hispanic_FIPS=X,Hispanic_Value=X.1,Hispanic_Rank=X.2)
-Hispanic_income <- Hispanic_income[-c(1:4,57:64),]
-Hispanic_income %>%
+education_HS <- read.csv("education_fixed_HS.csv")
+education_HS <- education_HS[-c(1:6,57:64),]
+education_HS <- education_HS %>%
+  select(-X)
+education_HS <- dplyr::rename(education_HS,State=Education..Less.than.High.School..by.State,Value_Percent_HS=X.1,people_HS=X.2,rank_HS=X.3)
+education_HS <- education_HS %>%
   arrange(State)
+education_HS
 ```
 
 ```{r}
-white_education <- read.csv("white_education_fixed.csv")
-white_education <- white_education[-c(1:4,57:64),]
-white_education <- white_education %>%
+education_9th <- read.csv("education_9th_fixed.csv")
+education_9th <- education_9th[-c(1:6,57:64),]
+education_9th <- education_9th %>%
   select(-X) %>%
-  rename(State=Education..At.least.bachelors.degree..by.State,white_Value_Percent=X.1,white_People=X.2,white_Rank=X.3)
-white_education <- white_education[-1,]
-white_education %>%
-  arrange(State)
+  rename(State=Education..Less.than.9th.grade..by.State,Value_Percent_9th=X.1,people_9th=X.2,rank_9th=X.3)
+education_9th
 ```
 
 ```{r}
-black_education <- read.csv("black_education_fixed.csv")
-black_education
+income <- read.csv("income_fixed.csv")
+income <- income[-c(1:5,57:64),]
+income <- income %>%
+  select(-X) %>%
+  rename(State=Income..Median.household.income..by.State,state_income=X.1,income_rank=X.2)
+income
 ```
 
+
 ```{r}
-data <- overallObesity %>%
-  full_join(american_indian_2022) %>%
-  full_join(asian_2022) %>%
-  full_join(black_2022) %>%
-  full_join(hispanic_2022) %>%
-  full_join(white_2022) %>%
-  full_join(white_education)
+data <- education_BD %>%
+  full_join(education_HS) %>%
+  full_join(income) %>%
+  full_join(education_9th)
 data
-```
-
-```{r}
-library(ggplot2)
-data %>%
-  ggplot(aes(white_Prevalence,white_Value_Percent)) + geom_point(aes(color=State))
 ```
 
 ```{r}
