@@ -64,7 +64,4 @@ data <- education_BD %>%
 data
 ```
 
-```{r}
-
-```
 
