@@ -10,7 +10,7 @@ library(dplyr)
 library(stringr)
 overallObesity <- read.csv("data/obesity.csv")
 overallObesity <- overallObesity %>%
-  select(-X95CI,-State)
+  select(-X95CI)
 overallObesity
 ```
 
@@ -61,7 +61,39 @@ data <- education_BD %>%
   full_join(education_HS) %>%
   full_join(income) %>%
   full_join(education_9th)
-data
+data <- data %>%
+  arrange(State)
+overallObesity$State <- trimws(tolower(overallObesity$State))
+data$State <- trimws(tolower(data$State))
+fullData <- overallObesity %>%
+  full_join(data)
+fullData
 ```
 
+
+```{r}
+image = sample(c("flag-Republic-of-Alabama-sword-state-liberty-1895.webp","Flag_of_Connecticut.svg.png"))
+library(ggplot2)
+firstPlot <- fullData %>%
+  ggplot(aes(people_BD,Prevalence)) + geom_point(aes(color=State,size=5)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
+ggsave("prevalencevsBD.png", plot = firstPlot, width = 20, height = 8, units = "in")
+```
+
+```{r}
+secondPlot <- fullData %>%
+  ggplot(aes(people_HS,Prevalence)) + geom_point(aes(color=State,size=5)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
+ggsave("prevalencevsHS.png", plot = secondPlot, width = 20, height = 8, units = "in")
+```
+
+```{r}
+thirdPlot <- fullData %>%
+  ggplot(aes(people_9th,Prevalence)) + geom_point(aes(color=State,size=5)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
+ggsave("prevalencevs9th.png", plot = thirdPlot, width = 20, height = 8, units = "in")
+```
+
+```{r}
+fourthPlot <- fullData %>%
+  ggplot(aes(state_income,Prevalence)) + geom_point(aes(color=State,size=5)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
+ggsave("prevalencevsincome.png", plot = fourthPlot, width = 20, height = 8, units = "in")
+```
 
