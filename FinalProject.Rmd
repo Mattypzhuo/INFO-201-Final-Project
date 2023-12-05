@@ -70,30 +70,57 @@ fullData <- overallObesity %>%
 fullData
 ```
 
+```{r}
+states <- c("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY")
+```
+
 
 ```{r}
-image = sample(c("flag-Republic-of-Alabama-sword-state-liberty-1895.webp","Flag_of_Connecticut.svg.png"))
 library(ggplot2)
 firstPlot <- fullData %>%
-  ggplot(aes(people_BD,Prevalence)) + geom_point(aes(color=State,size=5)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
+  ggplot(aes(people_BD,Prevalence)) + geom_point(aes(col="red",size=5)) +
+  geom_text(aes(label = states)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
 ggsave("prevalencevsBD.png", plot = firstPlot, width = 20, height = 8, units = "in")
 ```
 
 ```{r}
 secondPlot <- fullData %>%
-  ggplot(aes(people_HS,Prevalence)) + geom_point(aes(color=State,size=5)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
+  ggplot(aes(people_HS,Prevalence)) + geom_point(aes(col="red",size=5)) +
+  geom_text(aes(label = states)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
 ggsave("prevalencevsHS.png", plot = secondPlot, width = 20, height = 8, units = "in")
 ```
 
 ```{r}
-thirdPlot <- fullData %>%
-  ggplot(aes(people_9th,Prevalence)) + geom_point(aes(color=State,size=5)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
+thirdPlot <- fullData %>% 
+  ggplot(aes(people_9th,Prevalence)) + geom_point(aes(col="red",size=5)) +
+  geom_text(aes(label = states)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
 ggsave("prevalencevs9th.png", plot = thirdPlot, width = 20, height = 8, units = "in")
 ```
 
 ```{r}
 fourthPlot <- fullData %>%
-  ggplot(aes(state_income,Prevalence)) + geom_point(aes(color=State,size=5)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
+  ggplot(aes(state_income,Prevalence)) + geom_point(aes(col="red",size=5)) +
+  geom_text(aes(label = states)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
 ggsave("prevalencevsincome.png", plot = fourthPlot, width = 20, height = 8, units = "in")
 ```
 
+```{r}
+fifthPlot <- fullData %>%
+  ggplot(aes(Value_Percent_BD,Prevalence)) + geom_point(aes(col="red",size=5)) +
+  geom_text(aes(label = states)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
+ggsave("prevalencevsValueBD.png", plot = fifthPlot, width = 20, height = 8, units = "in")
+```
+
+```{r}
+sixthPlot <- fullData %>%
+  ggplot(aes(Value_Percent_HS,Prevalence)) + geom_point(aes(col="red",size=5)) +
+  geom_text(aes(label = states))
+ggsave("prevalencevsValueHS.png", plot = sixthPlot, width = 20, height = 8, units = "in")
+```
+
+```{r}
+seventhPlot <- fullData %>%
+  ggplot(aes(rank_BD,Prevalence)) + geom_point(aes(col="red",size=5)) +
+  geom_text(aes(label = states))
+ggsave("prevalencevsRankBD.png", plot = seventhPlot, width = 20, height = 8, units = "in")
+```
