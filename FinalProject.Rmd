@@ -76,6 +76,7 @@ states <- c("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "G
 
 
 ```{r}
+library(magick)
 library(ggplot2)
 firstPlot <- fullData %>%
   ggplot(aes(people_BD,Prevalence)) + geom_point(aes(col="red",size=5)) +
@@ -83,11 +84,20 @@ firstPlot <- fullData %>%
 ggsave("prevalencevsBD.png", plot = firstPlot, width = 20, height = 8, units = "in")
 ```
 
+```{r, out.width = "1200px"}
+knitr::include_graphics("prevalencevsBD.png")
+```
+
+
 ```{r}
 secondPlot <- fullData %>%
   ggplot(aes(people_HS,Prevalence)) + geom_point(aes(col="red",size=5)) +
   geom_text(aes(label = states)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
 ggsave("prevalencevsHS.png", plot = secondPlot, width = 20, height = 8, units = "in")
+```
+
+```{r, out.width = "1200px"}
+knitr::include_graphics("prevalencevsHS.png")
 ```
 
 ```{r}
@@ -97,11 +107,19 @@ thirdPlot <- fullData %>%
 ggsave("prevalencevs9th.png", plot = thirdPlot, width = 20, height = 8, units = "in")
 ```
 
+```{r, out.width = "1200px"}
+knitr::include_graphics("prevalencevs9th.png")
+```
+
 ```{r}
 fourthPlot <- fullData %>%
   ggplot(aes(state_income,Prevalence)) + geom_point(aes(col="red",size=5)) +
   geom_text(aes(label = states)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
 ggsave("prevalencevsincome.png", plot = fourthPlot, width = 20, height = 8, units = "in")
+```
+
+```{r, out.width = "1200px"}
+knitr::include_graphics("prevalencevsincome.png")
 ```
 
 ```{r}
@@ -111,6 +129,10 @@ fifthPlot <- fullData %>%
 ggsave("prevalencevsValueBD.png", plot = fifthPlot, width = 20, height = 8, units = "in")
 ```
 
+```{r, out.width = "1200px"}
+knitr::include_graphics("prevalencevsValueBD.png")
+```
+
 ```{r}
 sixthPlot <- fullData %>%
   ggplot(aes(Value_Percent_HS,Prevalence)) + geom_point(aes(col="red",size=5)) +
@@ -118,9 +140,17 @@ sixthPlot <- fullData %>%
 ggsave("prevalencevsValueHS.png", plot = sixthPlot, width = 20, height = 8, units = "in")
 ```
 
+```{r, out.width = "1200px"}
+knitr::include_graphics("prevalencevsValueHS.png")
+```
+
 ```{r}
 seventhPlot <- fullData %>%
   ggplot(aes(rank_BD,Prevalence)) + geom_point(aes(col="red",size=5)) +
   geom_text(aes(label = states))
 ggsave("prevalencevsRankBD.png", plot = seventhPlot, width = 20, height = 8, units = "in")
+```
+
+```{r, out.width = "1200px"}
+knitr::include_graphics("prevalencevsRankBD.png")
 ```
