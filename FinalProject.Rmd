@@ -8,7 +8,7 @@ date: "2023-11-15"
 library(magrittr)
 library(dplyr)
 library(stringr)
-overallObesity <- read.csv("data/obesity.csv")
+overallObesity <- read.csv("obesity.csv")
 overallObesity <- overallObesity %>%
   select(-X95CI)
 overallObesity
@@ -79,8 +79,14 @@ states <- c("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "G
 library(magick)
 library(ggplot2)
 firstPlot <- fullData %>%
-  ggplot(aes(people_BD,Prevalence)) + geom_point(aes(col="red",size=5)) +
-  geom_text(aes(label = states)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
+  ggplot(aes(people_BD,Prevalence)) + 
+  geom_point(col="lightblue",size=13) +
+  geom_text(aes(label = states), size = 6.5) + 
+  scale_x_discrete(guide = guide_axis(n.dodge=2)) +
+  theme(
+    axis.text = element_text(size = 12),
+    axis.title = element_text(size = 20)
+  )
 ggsave("prevalencevsBD.png", plot = firstPlot, width = 20, height = 8, units = "in")
 ```
 
@@ -91,8 +97,14 @@ knitr::include_graphics("prevalencevsBD.png")
 
 ```{r}
 secondPlot <- fullData %>%
-  ggplot(aes(people_HS,Prevalence)) + geom_point(aes(col="red",size=5)) +
-  geom_text(aes(label = states)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
+  ggplot(aes(people_HS,Prevalence)) + 
+  geom_point(col = "lightblue", size = 13) +
+  geom_text(aes(label = states), size = 6.5) + 
+  scale_x_discrete(guide = guide_axis(n.dodge=2)) +
+  theme(
+    axis.text = element_text(size = 13),
+    axis.title = element_text(size = 20)
+  )
 ggsave("prevalencevsHS.png", plot = secondPlot, width = 20, height = 8, units = "in")
 ```
 
@@ -102,8 +114,14 @@ knitr::include_graphics("prevalencevsHS.png")
 
 ```{r}
 thirdPlot <- fullData %>% 
-  ggplot(aes(people_9th,Prevalence)) + geom_point(aes(col="red",size=5)) +
-  geom_text(aes(label = states)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
+  ggplot(aes(people_9th,Prevalence)) + 
+  geom_point(col="lightblue",size=13) +
+  geom_text(aes(label = states), size = 6.5) + 
+  scale_x_discrete(guide = guide_axis(n.dodge=2)) +
+  theme(
+    axis.text = element_text(size = 13),
+    axis.title = element_text(size = 20)
+  )
 ggsave("prevalencevs9th.png", plot = thirdPlot, width = 20, height = 8, units = "in")
 ```
 
@@ -113,8 +131,14 @@ knitr::include_graphics("prevalencevs9th.png")
 
 ```{r}
 fourthPlot <- fullData %>%
-  ggplot(aes(state_income,Prevalence)) + geom_point(aes(col="red",size=5)) +
-  geom_text(aes(label = states)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
+  ggplot(aes(state_income,Prevalence)) + 
+  geom_point(col="lightblue",size=13) +
+  geom_text(aes(label = states), size = 6.5) +
+  scale_x_discrete(guide = guide_axis(n.dodge=2)) +
+  theme(
+    axis.text = element_text(size = 13),
+    axis.title = element_text(size = 20)
+  )
 ggsave("prevalencevsincome.png", plot = fourthPlot, width = 20, height = 8, units = "in")
 ```
 
@@ -124,8 +148,14 @@ knitr::include_graphics("prevalencevsincome.png")
 
 ```{r}
 fifthPlot <- fullData %>%
-  ggplot(aes(Value_Percent_BD,Prevalence)) + geom_point(aes(col="red",size=5)) +
-  geom_text(aes(label = states)) + scale_x_discrete(guide = guide_axis(n.dodge=2))
+  ggplot(aes(Value_Percent_BD,Prevalence)) + 
+  geom_point(col="lightblue",size=13) +
+  geom_text(aes(label = states), size = 6.5) + 
+  scale_x_discrete(guide = guide_axis(n.dodge=2)) +
+  theme(
+    axis.text = element_text(size = 13),
+    axis.title = element_text(size = 20)
+  )
 ggsave("prevalencevsValueBD.png", plot = fifthPlot, width = 20, height = 8, units = "in")
 ```
 
@@ -135,8 +165,13 @@ knitr::include_graphics("prevalencevsValueBD.png")
 
 ```{r}
 sixthPlot <- fullData %>%
-  ggplot(aes(Value_Percent_HS,Prevalence)) + geom_point(aes(col="red",size=5)) +
-  geom_text(aes(label = states))
+  ggplot(aes(Value_Percent_HS,Prevalence)) + 
+  geom_point(col="lightblue",size=13) +
+  geom_text(aes(label = states), size = 6.5) +
+  theme(
+    axis.text = element_text(size = 13),
+    axis.title = element_text(size = 20)
+  )
 ggsave("prevalencevsValueHS.png", plot = sixthPlot, width = 20, height = 8, units = "in")
 ```
 
@@ -146,8 +181,13 @@ knitr::include_graphics("prevalencevsValueHS.png")
 
 ```{r}
 seventhPlot <- fullData %>%
-  ggplot(aes(rank_BD,Prevalence)) + geom_point(aes(col="red",size=5)) +
-  geom_text(aes(label = states))
+  ggplot(aes(rank_BD,Prevalence)) + 
+  geom_point(col="lightblue",size=13) +
+  geom_text(aes(label = states), size = 6.5) +
+  theme(
+    axis.text = element_text(size = 13),
+    axis.title = element_text(size = 20)
+  )
 ggsave("prevalencevsRankBD.png", plot = seventhPlot, width = 20, height = 8, units = "in")
 ```
 
