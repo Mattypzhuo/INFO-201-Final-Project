@@ -10,6 +10,7 @@ library(dplyr)
 library(stringr)
 library(magick)
 library(ggplot2)
+library(ggpubr)
 overallObesity <- read.csv("data/obesity.csv")
 overallObesity <- overallObesity %>%
   select(-X95CI)
@@ -73,21 +74,27 @@ head(fullData)
 ```
 
 ```{r}
-states <- c("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY")
+fullData <- fullData %>%
+  arrange(State)
+fullData$stateAbreviation <- c("AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DC", "DE", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY")
 ```
 
 ```{r}
-fullData <- fullData %>%
+fullData4 <- fullData %>%
+  select(state_income,State,Prevalence,stateAbreviation)
+fullData4$state_income <- as.numeric(fullData4$state_income)
+fullData4 <- arrange(fullData4,state_income)
+fullData4 <- fullData4 %>%
   arrange(state_income)
-fourthPlot <- fullData %>%
+fullData4
+fourthPlot <- fullData4 %>%
   ggplot(aes(state_income,Prevalence)) + 
   geom_point(col="lightblue",size=13) +
-  geom_text(aes(label = states), size = 6.5) +
-  scale_x_discrete(guide = guide_axis(n.dodge=2)) +
+  geom_text(aes(label = stateAbreviation), size = 6.5) +
   theme(
     axis.text = element_text(size = 13),
     axis.title = element_text(size = 20)
-  ) + geom_smooth(aes(group=1),se=FALSE) + labs(title="Prevalence in obesity vs State income",subtitle="dataset from the U.S. Department of Health and Human Services",x="State income($)", y="prevalence in obesity(%)")
+  ) + geom_smooth(aes(group=1),se=FALSE,method=lm) + stat_cor(method="pearson",label.x=81000,label.y=40) + labs(title="Prevalence in obesity vs State income",subtitle="dataset from the U.S. Department of Health and Human Services",x="State income($)", y="prevalence in obesity(%)")
 ggsave("prevalencevsincome.png", plot = fourthPlot, width = 20, height = 8, units = "in")
 ```
 
@@ -96,15 +103,18 @@ knitr::include_graphics("prevalencevsincome.png")
 ```
 
 ```{r}
-fifthPlot <- fullData %>%
+fullData1 <- fullData %>%
+  select(Value_Percent_BD,State,Prevalence,stateAbreviation)
+fullData1$Value_Percent_BD <- as.numeric(fullData1$Value_Percent_BD)
+fullData1 <- arrange(fullData1,Value_Percent_BD)
+fifthPlot <- fullData1 %>%
   ggplot(aes(Value_Percent_BD,Prevalence)) + 
   geom_point(col="lightblue",size=13) +
-  geom_text(aes(label = states), size = 6.5) + 
-  scale_x_discrete(guide = guide_axis(n.dodge=2)) +
+  geom_text(aes(label = stateAbreviation), size = 6.5) + 
   theme(
     axis.text = element_text(size = 13),
     axis.title = element_text(size = 20)
-  ) + geom_smooth(aes(group=1),method=lm,se=FALSE) + labs(title="Prevalence in obesity vs percent of people with at least a bachelor's degree",subtitle="dataset from the U.S. Department of Health and Human Services",x="% of people", y="prevalence in obesity(%)")
+  ) + scale_x_continuous(limits = c(21, 46)) + scale_y_continuous(limits = c(25, 42)) + stat_cor(method="pearson",label.x=40,label.y=40) + geom_smooth(aes(group=1),method=lm,se=FALSE) + labs(title="Prevalence in obesity vs percent of people with at least a bachelor's degree",subtitle="dataset from the U.S. Department of Health and Human Services",x="% of people", y="prevalence in obesity(%)")
 ggsave("prevalencevsValueBD.png", plot = fifthPlot, width = 20, height = 8, units = "in")
 ```
 
@@ -114,17 +124,17 @@ knitr::include_graphics("prevalencevsValueBD.png")
 
 ```{r}
 fullData2 <- fullData %>%
-  select(Value_Percent_HS,State,Prevalence)
+  select(Value_Percent_HS,State,Prevalence,stateAbreviation)
 fullData2$Value_Percent_HS <- as.numeric(fullData2$Value_Percent_HS)
 fullData2 <- arrange(fullData2,Value_Percent_HS)
 sixthPlot <- fullData2%>%
   ggplot(aes(Value_Percent_HS,Prevalence)) + 
   geom_point(col="lightblue",size=13) +
-  geom_text(aes(label = states), size = 6.5) +
+  geom_text(aes(label = stateAbreviation), size = 6.5) +
   theme(
     axis.text = element_text(size = 13),
     axis.title = element_text(size = 20)
-  ) + geom_smooth(aes(group=1),method=lm,se=FALSE) + labs(title="Prevalence in obesity vs percent of people with less than high school education",subtitle="dataset from the U.S. Department of Health and Human Services",x="% of people", y="prevalence in obesity(%)")
+  ) + geom_smooth(aes(group=1),method=lm,se=FALSE) + stat_cor(method="pearson",label.x=7,label.y=40) + labs(title="Prevalence in obesity vs percent of people with less than high school education",subtitle="dataset from the U.S. Department of Health and Human Services",x="% of people", y="prevalence in obesity(%)")
 ggsave("prevalencevsValueHS.png", plot = sixthPlot, width = 20, height = 8, units = "in")
 ```
 
@@ -133,14 +143,18 @@ knitr::include_graphics("prevalencevsValueHS.png")
 ```
 
 ```{r}
-seventhPlot <- fullData %>%
+fullData5 <- fullData %>%
+  select(Value_Percent_9th,State,Prevalence,stateAbreviation)
+fullData5$Value_Percent_9th <- as.numeric(fullData5$Value_Percent_9th)
+fullData5 <- arrange(fullData5,Value_Percent_9th)
+seventhPlot <- fullData5 %>%
   ggplot(aes(Value_Percent_9th,Prevalence)) + 
   geom_point(col="lightblue",size=13) +
-  geom_text(aes(label = states), size = 6.5) +
+  geom_text(aes(label = stateAbreviation), size = 6.5) +
   theme(
     axis.text = element_text(size = 13),
     axis.title = element_text(size = 20)
-  ) + geom_smooth(aes(group=1),method=lm,se=FALSE) + labs(title="Prevalence in obesity vs percent of people with less than 9th grade education",subtitle="dataset from the U.S. Department of Health and Human Services",x="% of people", y="prevalence in obesity(%)")
+  ) + geom_smooth(aes(group=1),method=lm,se=FALSE) + stat_cor(method="pearson",label.x=7,label.y=40) + labs(title="Prevalence in obesity vs percent of people with less than 9th grade education",subtitle="dataset from the U.S. Department of Health and Human Services",x="% of people", y="prevalence in obesity(%)")
 ggsave("prevalencevsValue9th.png", plot = seventhPlot, width = 20, height = 8, units = "in")
 ```
 
