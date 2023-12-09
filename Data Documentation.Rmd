@@ -1,0 +1,64 @@
+Data Documentation
+
+
+Original data sources:
+#Source 1: Map Overall Obesity (csv file below table)
+# subtitle: "Prevalence† of Obesity Based on Self-Reported Weight and Height Among U.S. Adults by State and Territory, BRFSS, 2022"
+https://www.cdc.gov/obesity/data/prevalence-maps.html
+#Source 2: Map Median household income (export csv data below (Generate map)) 
+https://hdpulse.nimhd.nih.gov/data-portal/social/map?socialtopic=030&socialtopic_options=social_6&demo=00011&demo_options=income_3&race=00&race_options=race_7&sex=0&sex_options=sexboth_1&age=001&age_options=ageall_1&statefips=00&statefips_options=area_states
+#Source 3: Map Education less than 9th grade (export csv data below (Generate map))
+https://hdpulse.nimhd.nih.gov/data-portal/social/map?socialtopic=020&socialtopic_options=social_6&demo=00004&demo_options=education_3&race=00&race_options=raceall_1&sex=0&sex_options=sexboth_1&age=081&age_options=age25_1&statefips=00&statefips_options=area_states
+#Source 4: Map Education less than High School (export csv data below (Generate map))
+https://hdpulse.nimhd.nih.gov/data-portal/social/map?socialtopic=020&socialtopic_options=social_6&demo=00005&demo_options=education_3&race=00&race_options=race_7&sex=0&sex_options=sex_3&age=081&age_options=age25_1&statefips=00&statefips_options=area_states
+#Source 5: Map Education at least bachelors degree (export csv data below (Generate map))
+https://hdpulse.nimhd.nih.gov/data-portal/social/map?socialtopic=020&socialtopic_options=social_6&demo=00006&demo_options=education_3&race=00&race_options=race_7&sex=0&sex_options=sex_3&age=081&age_options=age25_1&statefips=00&statefips_options=area_states
+
+
+
+Explanation of all Variables/Columns:
+#State: Includes states in the United states vector type: character
+
+#Prevalence: the prevalence of obesity per state in percentage vector type: double
+
+#Value_Percent_BD: percent of people with a bachelors per state vector type: character
+
+#people_BD: amount of people with a bachelors per state vector type: character
+
+#rank_BD: Ranking per state of people with bachelors vector type: character
+
+#Value_Percent_HS: percent of people with less than high school education per state vector type: character
+
+#people_HS: amount of people with less than high school education per state vector type: character
+
+#rank_HS: Ranking per state of people with less than high school education vector type: character
+
+#state_income: Median household income per state vector type: character
+
+#income_rank: Ranking of Median household income per state vector type: character
+
+#Value_Percent_9th: percent of people with less than 9th grade education per state vector type: character
+
+#people_9th: amount of people with less than 9th grade education per state vector type: character
+
+#rank_9th: Ranking per state of people with less than 9th grade education vector type: character
+
+
+
+Basic Summary Statistics:
+
+For our observations
+In the overall Obesity data frame, there are 54 rows. 
+In the education bachelor's degrees data frame, there are 50 rows. 
+In the education high school data frame there are 50 rows.
+In the education less than 9th grade data frame there are 50 rows.
+In the income data frame, there are 51 rows.
+
+Missing Rows:
+Missing education BD rate for the District of Columbia, Puerto Rico, Guam, Virgin islands
+Missing education HS rates for Guam, Puerto Rico, the Virgin Islands, Montana
+Missing education 9th rates for Puerto Rico, Guam, Montana, Virgin Islands
+Missing state income for Guam, Puerto Rico, and the Virgin Islands. 
+15 missing variables in total.
+
+Missing Columns: None
