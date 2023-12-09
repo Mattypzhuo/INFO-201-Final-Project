@@ -3,6 +3,79 @@ title: "Final Project Proposal"
 output: html_document
 date: "2023-11-15"
 ---
+## Introduction
+In our project, we're looking at how education, income, and obesity are connected in the United States. Our mission is to unravel whether higher education levels are linked to lower obesity rates and to explore how these connections differ across states. We aim to provide practical insights for policymakers, healthcare professionals, and researchers, with the overarching goal of shaping effective health strategies.
+Obesity, a health concern marked by excessive fat accumulation, poses significant risks such as high blood pressure, diabetes, and more. Beyond the physical toll, it diminishes the overall quality of life. Despite these severe consequences, the U.S. grapples with escalating obesity rates, prompting our central question: Why does this alarming trend persist?
+Our research seeks to answer specific questions:
+Is there a correlation between obesity rates and education level?
+We aim to understand if individuals with higher education levels tend to have lower obesity rates.
+
+
+Which education level has a higher correlation to obesity rates?
+By examining different education levels, we hope to identify whether certain levels show a stronger correlation with obesity rates.
+
+
+How does the correlation between education and obesity vary across different states?
+Recognizing that the relationship between education and obesity might differ, we explore state-specific variations to inform targeted interventions.
+
+
+Is there a correlation between obesity rates and income level?
+We broaden our focus to investigate if income levels are correlated with obesity rates, providing a comprehensive view of these interconnected factors.
+Our diverse audience, including policymakers, healthcare professionals, and researchers, will benefit from the insights we aim to provide. Obesity, with its associated health risks, demands a nuanced approach. We believe that understanding the intricate relationships between education, income, and obesity will pave the way for tailored public health interventions.
+To achieve our goals, we employ a multi-faceted methodology, analyzing existing datasets encompassing education, income, and obesity rates across various U.S. states. Statistical tools such as correlation analyses and regression modeling guide our exploration, with a state-by-state approach capturing regional nuances that influence correlations.
+Anticipating varied outcomes, our research may reveal positive correlations between higher education levels and lower obesity rates. Alternatively, state-specific variations may underscore the need for targeted interventions. Exploring the correlation between income levels and obesity rates could reveal additional dimensions, contributing to a comprehensive understanding of this complex public health challenge.
+As we embark on this research journey, our commitment is deeply rooted in the belief that unraveling the relationships between education, income, and obesity is pivotal for advancing effective public health strategies. Armed with practical insights, we aspire to contribute meaningfully to the development of interventions addressing the root causes of rising obesity rates, fostering healthier and more resilient communities across the United States.
+
+
+
+
+## Explain Data 
+To properly analyze data revolving around health, social, and economic factors it is necessary to make sure the gathering data is from a representative data source. Sources that were employed are specifically from two government sources, “CDC Obesity Prevalence Map”, and “HDpulse Social, economic, and cultural environment data”.  These sources were used for their reputable and standardized background as they are provided by the Census Bureau, CDC, and the American Community Survey all known for their reliable, accurate, and unbiased data. 
+
+The datasets are not just relevant in answering our research questions about income, education, and obesity statistics, they also include great insight per state. More specifically, there is an abundance of variables that are included in those topics, their quality, and thoroughness are important for providing accurate answers to our questions. 
+In terms of data collection for CDC obesity research, the National Center for Health Statistics, Behavioral Risk Factor Surveillance System, and CDC were used to collect data.
+
+For our HD pulse, “income and education data,” they used the American Community Survey to collect income data at state and local levels and the National Center for Education Statistics for education statistics. 
+
+The data usage restrictions for HDPulse and CDC are required by law. The Public Health Service Act, states to use only for “statistical reporting and analysis”. Otherwise to use it for any other purpose is illegal. 
+
+The datasets for the CDC Obesity Prevalence data population will be all adults in the United States by state. The sample includes adults who are 20 years and older. This data is based on self-reported weight and height.
+
+The datasets for HDpulse income and education data will be all adults in the United States by state. The sample includes adults who are 25+ years and older, this includes “income data”, “adults less than 9th grade”, “adults less than high school”, and “adults at least a bachelor's degree”. Samples are based on survey data provided by the Census Bureau and the American Community Survey.
+
+In terms of data quality, it was inconvenient to work with the data because the CSV files are not properly formatted as a proper CSV file, rather we had to organize/format the data from scratch. Some examples included the data values being split into two different columns and a set of invisible characters that caused errors in our data frame. The final dataset corrects all CSV formatting errors and displays all datasets correctly.
+
+The rows in our dataset represent:
+The prevalence of obesity among individuals with at least a Bachelor's Degree.
+The number of individuals with bachelor's degrees, as well as the prevalence, count, and rank of bachelor's degrees in a particular state.
+
+The prevalence of obesity among individuals with at least a High School Degree. 
+The number of individuals with high school degrees, as well as the prevalence, count, and rank of high school degrees in a particular state.
+
+The prevalence of obesity among individuals with at least a 9th-grade education.
+The count of individuals with less than a 9th-grade education, along with the prevalence and rank of less than 9th-grade education in a specific state.
+The prevalence of obesity among individuals with a household income. 
+The average household income and the rank of household income in a particular state.
+
+For our observations:
+In the overall Obesity data frame, there are 54 rows. 
+In the education bachelor's degrees data frame, there are 50 rows. 
+In the education high school data frame there are 50 rows.
+In the education less than 9th grade data frame there are 50 rows.
+In the income data frame, there are 50 rows.
+
+All relevant variables were used in our dataset they include: State, Prevalence, Value_Percent_BD, people_BD, rank_BD, Value_Percent_HS, people_HS, rank_HS, state_income, income_rank, Value_Percent_9th, people_9th, rank_9th
+
+Missing education BD rate for the District of Columbia, Puerto Rico, Guam, Virgin islands
+Missing education HS rates for Guam, Puerto Rico, the Virgin Islands, Montana
+Missing education 9th rates for Puerto Rico, Guam, Montana, Virgin Islands
+Missing state income for Guam, Puerto Rico, and the Virgin Islands. 
+15 missing variables in total. 
+
+
+## Discuss Methods
+In this project, the data frame included State, obesity prevalence, income for each state, number of people who have at least a bachelor's degree, high school, or 9th grade, percent of people who achieved those three levels of education, a ranking of the states, and state abbreviations. For the graphs though, we specifically used States, obesity prevalence, income, percent of people who achieved those three levels of education, and state abbreviations. To get our data, we looked for data provided by the CDC, as they would most likely have the data we need about people in the US. On the CDC website, we found a downloadable csv file with the obesity prevalence of each state and territory in the US, along with confidence intervals. For education and income data, we found various kinds of downloadable csv files provided by the U.S. Department of Health and Human Services. At first, we wanted to make multiple graphs for each demographic, but in the end we decided to make graphs that included all races as some data frames were just missing lots of data. Because of this, we decided to use data that includes all demographics. The data was first processed by using the terminal and the awk tool. We decided to process the data using the terminal due to formatting issues of the original csv files. The original csv files separated each value by commas, but since there were number values in the thousands, it split those numbers into two different columns. Using the awk tool in the terminal, we were able to combine the two columns together, and format the data frame properly. After formatting the csv file we read it into RStudio and removed any unneeded rows such as rows that explained what the data is and the sources. This process created 5 separate data frames that we then could merge together and graph with. To merge these data frames, we first renamed all the columns making sure that each of the values could be correctly identified. We used the full_join() function to merge these data frames by the column state, making sure to order each row by alphabetical order beforehand. When merging, we came across another problem, as it would add the new dataframe as new rows and not just a column. This happened because the values for the State column were different. In the original dataframe, the State names had invisible characters, so merging didn’t work properly. To fix this, we used the trimws() function to trim the values to delete any invisible characters. After formatting, cleaning, and merging the data, we got a big dataframe with all the variables needed for graphing. There weren’t many technical decisions with which columns should be kept or dropping missing values, but one column we dropped was in the obesity csv file. Besides the State and prevalence columns, there was an additional confidence interval column. This column was unneeded, so we decided to delete it entirely from the data frame. For missing values, we eliminated them when graphing so they wouldn’t affect the trend line at all. Most of the data wasn’t missing so we didn’t need to filter much. There weren’t many very complex statistical methods used, but every graph does have a correlation coefficient included, to show how much each factor affects the obesity prevalence, and there is also a trend line to clearly show the relationship between the two variables.
+
 
 ```{r}
 library(magrittr)
@@ -11,7 +84,7 @@ library(stringr)
 library(magick)
 library(ggplot2)
 library(ggpubr)
-overallObesity <- read.csv("data/obesity.csv")
+overallObesity <- read.csv("obesity.csv")
 overallObesity <- overallObesity %>%
   select(-X95CI)
 head(overallObesity)
@@ -161,3 +234,24 @@ ggsave("prevalencevsValue9th.png", plot = seventhPlot, width = 20, height = 8, u
 ```{r, out.width = "1200px"}
 knitr::include_graphics("prevalencevsValue9th.png")
 ```
+
+The data tells us that there are correlations between the level of education, level of income and obesity rates. The three graphs that are based on education levels are plotted with the obesity rates on the y-axis and the percentage of people by state who qualify for those categories are on the x-axis. The last graph compares obesity rates on the y-axis to average household state incomes on the x-axis. In prevalence of obesity vs percent of people with at least a bachelor’s degree, there is a clear downward trend and inverse relationship between obesity rates and those with a bachelor’s. In prevalence of obesity vs percent of people with less than high school degree, there is a moderate upward trend where the percentage of people increases the obesity rates increase. In prevalence of obesity vs percent of people with less than 9th grade education, there is little to no trend found in the data. Lastly, in prevalence of obesity vs average state income, there is a downward trend where as the state income increases, the obesity rate decreases. We can conclude from the data that education level and income are not negligible factors when considering obesity rates in America.
+
+## Discuss findings 
+
+*1. Is there a correlation between obesity rates and education level?*  
+Yes, to some degree. This is because a person's level of education is only one of several factors that determine their risk of being overweight. A person's financial situation, their ability to purchase nutritious food, and the nature of their job are all significant factors. To fully comprehend and address the obesity epidemic, it is necessary to include all relevant factors, not limited to education alone.
+
+*2. Which education level has a higher correlation to obesity rates?*
+The higher the education level, the more distinct the correlation is. The slope of the graph for Bachelor's degrees is steeper than that of less than high school degrees graph, which is steeper than the less than 9th grade graph. A steeper slope indicates a stronger relationship to obesity rates. This is likely because the higher the education is, the higher the income, and we see from the Prevalence v Household Average State Income graph that the higher the income, the lower the obesity rates.
+
+*3. How does the correlation between education and obesity vary across different states?*
+Based on all of the graphs, the states who have higher rates of obesity tend to have lower average incomes as well as higher percentages in people who have not completed high school or ninth grade. This works vice versa because states that have lower rates of obesity also have higher average incomes and higher percentages in people who have bachelor’s degrees.
+
+*4. Is there a correlation between obesity rates and income level?*
+Yes. There is a clear correlation that the higher the income level, the lower the obesity rates become. This is likely due to the fact that more processed, high calorie foods are cheaper and are consumed by families with lower income levels. Families with higher incomes have healthier food sources available to them because they can afford it
+
+We can only extend our claims on obesity, education level, and income level so far because there are a multitude of factors that could contribute to obesity. These factors include access to healthcare, genetics, stress, depression, body dysmorphia, smoking, type of job etc. For future work, we could continue to focus on specific factors that could lead to obesity to find which factors have the strongest correlations and then we will be able to see the bigger picture on what could impact people’s weight the most. We could also separate the data by gender and race to see which groups are more impacted by what factors, however this would take significantly much more time to merge and sort through. 
+
+## Summary
+At the beginning of the project, we decided to tackle the issue of high obesity rates in America. We wanted to find out what could be the most important factors that impact the current rates of obesity so we downloaded many different files including obesity rates by race, average incomes, smoking rates, and education levels. However, after feedback and reflection we decided that we had too many data sets on our hands so we narrowed down to solely education levels and average incomes. We formatted the data frames to be identical so that the columns could merge together seamlessly and we made 4 graphs from this combined data frame. The first 3 graphs showed the relationship between obesity rates and the level of education in each state, and the 4th graph showed the relationship between obesity rates and the average annual household incomes by state. We conclude that education and income do indeed have an impact on obesity, but there are still many more factors to comb through when considering our question of what impacts obesity the most. With the aim of informing policymakers, healthcare professionals, and researchers, we hope our insights contribute to a more informed public discourse on health. Our main key takeaway is that obesity in America is a complex problem, and needs thorough research of all aspects of life to determine the main causes of this disease.
